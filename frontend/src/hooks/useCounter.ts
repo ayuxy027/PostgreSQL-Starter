@@ -20,7 +20,7 @@ export const useCounter = () => {
         setCount(data.value)
       } catch (err) {
         console.error(err)
-        setError('Could not reach the SQLite backend. Is ./dev.sh running?')
+        setError('Could not reach the backend API. The server appears to be down.')
       } finally {
         setLoading(false)
       }
