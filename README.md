@@ -22,20 +22,21 @@ work nicely together.
 
 2. **Create database:**
    ```bash
-   createdb warehouse
+   createdb your_database_name
    ```
+   (Replace `your_database_name` with your preferred database name)
 
 3. **Configure backend environment:**
    ```bash
    cd backend
-   touch .env
+   cp .env.example .env
    ```
-   Add to `.env`:
+   Edit `.env` and update:
    ```env
-   DATABASE_URL="postgresql://YOUR_USERNAME:YOUR_PASSWORD@localhost:5432/warehouse?schema=public"
+   DATABASE_URL="postgresql://YOUR_USERNAME:YOUR_PASSWORD@localhost:5432/YOUR_DATABASE_NAME?schema=public"
    PORT=4000
    ```
-   (Replace `YOUR_USERNAME` and `YOUR_PASSWORD` with your PostgreSQL credentials)
+   (Replace `YOUR_USERNAME`, `YOUR_PASSWORD`, and `YOUR_DATABASE_NAME` with your PostgreSQL credentials)
 
 4. **Install and setup backend:**
    ```bash
@@ -67,9 +68,15 @@ Start editing UI in `frontend/src/App.tsx` and backend logic in `backend/src/ind
 **Prisma Commands**
 
 - `npm run prisma:generate` - Generate Prisma Client after schema changes
-- `npm run prisma:migrate` - Create and apply migrations
+- `npm run prisma:migrate` - Create and apply migrations (development)
+- `npm run prisma:migrate:deploy` - Apply migrations (production)
 - `npm run prisma:push` - Push schema changes without migrations (dev only)
 - `npm run prisma:studio` - Open Prisma Studio (database GUI)
+
+**Production**
+
+- Backend: `npm run start` (runs `node src/index.js`)
+- Frontend: `npm run build` then serve the `dist/` folder
 
 **Pro Tip**
 

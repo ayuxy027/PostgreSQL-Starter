@@ -4,9 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "prisma:push": "prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
